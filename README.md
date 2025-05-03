@@ -1,3 +1,8 @@
+Here's a detailed and professional `README.md` for your GitHub repository **Connect-Sphere** – the MERN stack-based social media and messaging app:
+
+---
+
+```
 # 🌐 Connect-Sphere
 
 Connect-Sphere is a modern **MERN stack** social media web application that combines secure, real-time messaging (like WhatsApp) with a classic-style news feed and 24-hour stories (like old Facebook and Instagram). It enables users to **chat securely**, **share posts**, and **express themselves through stories** — all in one sleek platform.
@@ -68,7 +73,6 @@ Connect-Sphere is a modern **MERN stack** social media web application that comb
 
 ```
 
-```
 connect-sphere/
 ├── client/                # React frontend
 │   ├── src/
@@ -86,7 +90,8 @@ connect-sphere/
 │   ├── middleware/        # JWT auth, error handler, file upload
 │   └── server.js          # App entry point
 └── README.md
-```
+
+````
 
 ---
 
@@ -94,10 +99,10 @@ connect-sphere/
 
 ### 1. Clone the repository
 
-```bash
+```
 git clone https://github.com/Code-Practice25/Connect-Sphere.git
 cd Connect-Sphere
-```
+````
 
 ### 2. Set up Environment Variables
 
@@ -131,7 +136,7 @@ npm install
 
 **Frontend:**
 
-```bash
+```
 cd ../client
 npm install
 ```
@@ -149,7 +154,7 @@ npm start
 
 ### Run Frontend:
 
-```bash
+```
 cd client
 npm start
 ```
@@ -164,58 +169,41 @@ Now go to: `http://localhost:3000`
 
 ```
 {
-  "username": "string", 
-  "email": "string", 
-  "password": "string", 
-  "profilePic": "string", 
-  "bio": "string",
-  "followers": ["userId"], 
-  "following": ["userId"]
+  username, email, password, profilePic, bio,
+  followers: [userId], following: [userId]
 }
 ```
 
 ### Post
 
-```json
+```
 {
-  "author": "userId", 
-  "content": "string", 
-  "imageURL": "string", 
-  "likes": ["userId"],
-  "comments": [{ "userId": "string", "comment": "string" }], 
-  "createdAt": "date"
+  author, content, imageURL, likes: [userId],
+  comments: [{ userId, comment }], createdAt
 }
 ```
 
 ### Story
 
-```json
+```
 {
-  "userId": "string", 
-  "imageURL": "string", 
-  "createdAt": "date" // TTL for auto-deletion
+  userId, imageURL, createdAt // TTL for auto-deletion
 }
 ```
 
 ### Chat
 
-```json
+```
 {
-  "members": ["userId1", "userId2"], 
-  "lastMessage": "messageId"
+  members: [userId1, userId2], lastMessage
 }
 ```
 
 ### Message
 
-```json
+```
 {
-  "chatId": "string", 
-  "senderId": "string", 
-  "text": "string", 
-  "media": "string", 
-  "seen": "boolean", 
-  "createdAt": "date"
+  chatId, senderId, text, media, seen, createdAt
 }
 ```
 
@@ -227,8 +215,8 @@ Now go to: `http://localhost:3000`
   🔗 [@Code-Practice25](https://github.com/Code-Practice25)
   🛠️ Secure messaging, Socket.io, chat UI, backend APIs
 
-* **\[Your Friend's Name]**
-  🔗 \[GitHub Profile Link]
+* **\Aditya Aerpule**
+  🔗 \[GitHub Profile Link](https://github.com/coder-aadii)
   🛠️ News feed, post/story system, file upload, UI polish
 
 ---
@@ -244,3 +232,18 @@ This project is licensed under the **MIT License** - feel free to use, modify, a
 Feel free to [open an issue](https://github.com/Code-Practice25/Connect-Sphere/issues) or drop a PR if you’d like to contribute or report bugs.
 
 ```
+
+---
+
+Let me know if you'd like me to generate the initial `.env.example` files or a CONTRIBUTING.md file too.
+```
+
+://github.com/Code-Practice25/Connect-Sphere/issues) or drop a PR if you’d like to contribute or report bugs.
+
+```
+
+---
+
+Let me know if you'd like me to generate the initial `.env.example` files or a CONTRIBUTING.md file too.
+```
+
