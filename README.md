@@ -1,249 +1,300 @@
-Here's a detailed and professional `README.md` for your GitHub repository **Connect-Sphere** – the MERN stack-based social media and messaging app:
 
----
-
-```
 # 🌐 Connect-Sphere
 
-Connect-Sphere is a modern **MERN stack** social media web application that combines secure, real-time messaging (like WhatsApp) with a classic-style news feed and 24-hour stories (like old Facebook and Instagram). It enables users to **chat securely**, **share posts**, and **express themselves through stories** — all in one sleek platform.
+<div align="center">
 
-![Connect-Sphere Banner](https://your-banner-image-url.com) <!-- Optional: Add a banner if available -->
+![GitHub stars](https://img.shields.io/github/stars/Code-Practice25/Connect-Sphere?style=social)
+![GitHub forks](https://img.shields.io/github/forks/Code-Practice25/Connect-Sphere?style=social)
+![GitHub issues](https://img.shields.io/github/issues/Code-Practice25/Connect-Sphere)
+![GitHub license](https://img.shields.io/github/license/Code-Practice25/Connect-Sphere)
+
+**A modern MERN stack social platform combining secure messaging, news feed, and stories**
+
+[Features](#-features) •
+[Tech Stack](#%EF%B8%8F-tech-stack) •
+[Installation](#%EF%B8%8F-installation) •
+[Usage](#%EF%B8%8F-usage) •
+[Database Schema](#-database-schema) •
+[Contributors](#-contributors)
+
+</div>
 
 ---
 
-## 📌 Table of Contents
+## 📋 Overview
 
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Folder Structure](#folder-structure)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Database Schema](#database-schema)
-- [Contributors](#contributors)
-- [License](#license)
+Connect-Sphere is a comprehensive social media application built on the MERN stack that combines:
 
----
+- **Secure, real-time messaging** similar to WhatsApp
+- **Classic-style news feed** reminiscent of traditional Facebook
+- **24-hour stories** inspired by Instagram
+
+The platform enables users to chat securely, share posts, and express themselves through ephemeral stories — all within a single, cohesive user experience.
+
+![Connect-Sphere Banner](https://via.placeholder.com/1200x400?text=Connect-Sphere)
 
 ## ✨ Features
 
-### 🔐 Secure Messaging (WhatsApp Style)
-- One-on-one real-time messaging using **Socket.io**
-- Message delivery & seen status
+### 🔐 Secure Messaging
+- Real-time messaging with Socket.io
+- Message delivery & read receipts
 - Typing indicators
-- Media sharing (images/audio)
-- Optional: End-to-end encryption (E2EE)
+- Media sharing capabilities
+- Optional end-to-end encryption
 
-### 📰 News Feed (Old Facebook Style)
-- Text/image/video posts
-- Like, comment, and delete functionality
-- Responsive feed with sorting (latest, popular)
+### 📰 News Feed
+- Multi-media posts (text, images, videos)
+- Interactive engagement (likes, comments)
+- Content management
+- Intelligent feed sorting (latest, popular)
 
-### 📸 24-Hour Stories (Instagram Style)
-- Upload short-lived stories (image/video/text)
-- Auto-expire after 24 hours (MongoDB TTL)
-- Story viewers tracking
+### 📸 Stories
+- Ephemeral content that expires after 24 hours
+- Support for various media types
+- Viewer tracking
+- MongoDB TTL for automatic expiration
 
 ### 👤 User Management
-- Register/login using **JWT**
-- Update profile, bio, and picture
-- Follow/unfollow system
+- Secure authentication with JWT
+- Comprehensive profile customization
+- Social graph management (follow/unfollow)
+- Privacy controls
 
-### 🌙 Modern UX
-- Tailwind CSS-based dark/light theme
-- Responsive mobile-first design
-- Smooth animations and transitions
-
----
+### 🌙 User Experience
+- Responsive design with mobile-first approach
+- Dark/light theme toggle
+- Smooth transitions and animations
+- Accessibility considerations
 
 ## ⚙️ Tech Stack
 
-| Layer       | Technology                       |
-|-------------|----------------------------------|
-| Frontend    | React.js, Redux Toolkit, TailwindCSS |
-| Realtime    | Socket.io                        |
-| Backend     | Node.js, Express.js              |
-| Database    | MongoDB + Mongoose               |
-| Authentication | JWT, bcrypt                    |
-| File Upload | Cloudinary or Firebase           |
-| Deployment  | Netlify (Frontend), Render/Railway (Backend) |
+<div align="center">
 
----
+| Category | Technologies |
+|----------|--------------|
+| **Frontend** | ![React](https://img.shields.io/badge/-React-61DAFB?style=flat-square&logo=react&logoColor=black) ![Redux](https://img.shields.io/badge/-Redux-764ABC?style=flat-square&logo=redux) ![TailwindCSS](https://img.shields.io/badge/-TailwindCSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white) |
+| **Backend** | ![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=node.js&logoColor=white) ![Express](https://img.shields.io/badge/-Express-000000?style=flat-square&logo=express) |
+| **Database** | ![MongoDB](https://img.shields.io/badge/-MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white) ![Mongoose](https://img.shields.io/badge/-Mongoose-880000?style=flat-square&logo=mongoose) |
+| **Real-time** | ![Socket.io](https://img.shields.io/badge/-Socket.io-010101?style=flat-square&logo=socket.io) |
+| **Authentication** | ![JWT](https://img.shields.io/badge/-JWT-000000?style=flat-square&logo=json-web-tokens) ![bcrypt](https://img.shields.io/badge/-bcrypt-003B57?style=flat-square) |
+| **Storage** | ![Cloudinary](https://img.shields.io/badge/-Cloudinary-3448C5?style=flat-square&logo=cloudinary) or ![Firebase](https://img.shields.io/badge/-Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black) |
+| **Deployment** | ![Netlify](https://img.shields.io/badge/-Netlify-00C7B7?style=flat-square&logo=netlify&logoColor=white) ![Render](https://img.shields.io/badge/-Render-46E3B7?style=flat-square&logo=render&logoColor=white) |
 
-## 📁 Folder Structure
+</div>
+
+## 📁 Project Structure
 
 ```
-
 connect-sphere/
 ├── client/                # React frontend
 │   ├── src/
 │   │   ├── components/    # Reusable UI components
-│   │   ├── features/      # Feature-based folders (auth, chat, post, story)
-│   │   ├── pages/         # Page components (Home, Messages, Profile)
+│   │   ├── features/      # Feature-based modules
+│   │   ├── pages/         # Page components
 │   │   ├── services/      # API services
-│   │   └── redux/         # Global store config
-│   └── public/
+│   │   └── redux/         # Global state management
+│   └── public/            # Static assets
 ├── server/                # Express backend
-│   ├── controllers/       # Route logic
-│   ├── models/            # Mongoose schemas
-│   ├── routes/            # API routes
-│   ├── sockets/           # Socket.io handlers
-│   ├── middleware/        # JWT auth, error handler, file upload
-│   └── server.js          # App entry point
+│   ├── controllers/       # Route controllers
+│   ├── models/            # Database schemas
+│   ├── routes/            # API endpoints
+│   ├── sockets/           # WebSocket handlers
+│   ├── middleware/        # Custom middleware
+│   └── server.js          # Entry point
 └── README.md
-
-````
-
----
+```
 
 ## 🛠️ Installation
 
-### 1. Clone the repository
+### Prerequisites
+- Node.js (v14+)
+- npm or yarn
+- MongoDB instance
 
-```
-git clone https://github.com/Code-Practice25/Connect-Sphere.git
-cd Connect-Sphere
-````
+### Setup Steps
 
-### 2. Set up Environment Variables
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Code-Practice25/Connect-Sphere.git
+   cd Connect-Sphere
+   ```
 
-Create `.env` files in both `client/` and `server/`.
+2. **Configure environment variables**
 
-**Server `.env`:**
+   Create `.env` files in both client and server directories:
 
-```
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-CLOUDINARY_CLOUD_NAME=your_cloudinary_name
-CLOUDINARY_API_KEY=your_api_key
-CLOUDINARY_API_SECRET=your_api_secret
-```
+   **Server `.env`:**
+   ```
+   PORT=5000
+   MONGO_URI=your_mongodb_connection_string
+   JWT_SECRET=your_jwt_secret
+   CLOUDINARY_CLOUD_NAME=your_cloudinary_name
+   CLOUDINARY_API_KEY=your_api_key
+   CLOUDINARY_API_SECRET=your_api_secret
+   ```
 
-**Client `.env`:**
+   **Client `.env`:**
+   ```
+   REACT_APP_API_BASE_URL=http://localhost:5000/api
+   ```
 
-```
-REACT_APP_API_BASE_URL=http://localhost:5000/api
-```
+3. **Install dependencies**
 
-### 3. Install Dependencies
+   **Backend:**
+   ```bash
+   cd server
+   npm install
+   ```
 
-**Backend:**
-
-```
-cd server
-npm install
-```
-
-**Frontend:**
-
-```
-cd ../client
-npm install
-```
-
----
+   **Frontend:**
+   ```bash
+   cd ../client
+   npm install
+   ```
 
 ## ▶️ Usage
 
-### Run Backend:
+### Development Mode
 
-```
-cd server
-npm start
-```
+1. **Start the backend server**
+   ```bash
+   cd server
+   npm run dev
+   ```
 
-### Run Frontend:
+2. **Start the frontend development server**
+   ```bash
+   cd client
+   npm start
+   ```
 
-```
-cd client
-npm start
-```
+3. **Access the application**
+   
+   Open your browser and navigate to: `http://localhost:3000`
 
-Now go to: `http://localhost:3000`
+### Production Build
 
----
+1. **Build the frontend**
+   ```bash
+   cd client
+   npm run build
+   ```
 
-## 🧠 Database Schema Overview
+2. **Start the production server**
+   ```bash
+   cd ../server
+   npm start
+   ```
+
+## 🧠 Database Schema
 
 ### User
-
-```
+```javascript
 {
-  username, email, password, profilePic, bio,
-  followers: [userId], following: [userId]
+  username: String,
+  email: String,
+  password: String,
+  profilePic: String,
+  bio: String,
+  followers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+  following: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+  createdAt: Date
 }
 ```
 
 ### Post
-
-```
+```javascript
 {
-  author, content, imageURL, likes: [userId],
-  comments: [{ userId, comment }], createdAt
+  author: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  content: String,
+  imageURL: String,
+  likes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+  comments: [{
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    comment: String,
+    createdAt: Date
+  }],
+  createdAt: Date
 }
 ```
 
 ### Story
-
-```
+```javascript
 {
-  userId, imageURL, createdAt // TTL for auto-deletion
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  imageURL: String,
+  viewers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+  createdAt: { type: Date, expires: '24h' } // TTL index for auto-deletion
 }
 ```
 
 ### Chat
-
-```
+```javascript
 {
-  members: [userId1, userId2], lastMessage
+  members: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+  lastMessage: { type: mongoose.Schema.Types.ObjectId, ref: 'Message' },
+  createdAt: Date
 }
 ```
 
 ### Message
-
-```
+```javascript
 {
-  chatId, senderId, text, media, seen, createdAt
+  chat: { type: mongoose.Schema.Types.ObjectId, ref: 'Chat' },
+  sender: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  text: String,
+  media: String,
+  seen: Boolean,
+  createdAt: Date
 }
 ```
 
----
-
 ## 👥 Contributors
 
-* **Parinay Raya**
-  🔗 [@Code-Practice25](https://github.com/Code-Practice25)
-  🛠️ Secure messaging, Socket.io, chat UI, backend APIs
-
-* **\Aditya Aerpule**
-  🔗 \[GitHub Profile Link](https://github.com/coder-aadii)
-  🛠️ News feed, post/story system, file upload, UI polish
-
----
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/Code-Practice25">
+        <img src="https://github.com/Code-Practice25.png" width="100px;" alt="Parinay Raya"/>
+        <br />
+        <sub><b>Parinay Raya</b></sub>
+      </a>
+      <br />
+      <sub>Messaging, Socket.io, Backend</sub>
+    </td>
+    <td align="center">
+      <a href="https://github.com/coder-aadii">
+        <img src="https://github.com/coder-aadii.png" width="100px;" alt="Aditya Aerpule"/>
+        <br />
+        <sub><b>Aditya Aerpule</b></sub>
+      </a>
+      <br />
+      <sub>Feed, Stories, UI/UX</sub>
+    </td>
+  </tr>
+</table>
 
 ## 📄 License
 
-This project is licensed under the **MIT License** - feel free to use, modify, and share!
+This project is licensed under the [MIT License](LICENSE).
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📬 Contact
+
+For questions or feedback, please [open an issue](https://github.com/Code-Practice25/Connect-Sphere/issues) or contact the maintainers directly.
 
 ---
 
-## 🙌 Support or Suggestions?
-
-Feel free to [open an issue](https://github.com/Code-Practice25/Connect-Sphere/issues) or drop a PR if you’d like to contribute or report bugs.
-
-```
-
----
-
-Let me know if you'd like me to generate the initial `.env.example` files or a CONTRIBUTING.md file too.
-```
-
-://github.com/Code-Practice25/Connect-Sphere/issues) or drop a PR if you’d like to contribute or report bugs.
-
-```
-
----
-
-Let me know if you'd like me to generate the initial `.env.example` files or a CONTRIBUTING.md file too.
-```
-
+<div align="center">
+  <sub>Built with ❤️ by the Connect-Sphere team</sub>
+</div>
+</qodoArtifact>
