@@ -79,3 +79,4 @@ Work together on:
 - Have **integration checkpoints** (e.g., "Day 4 – Integrate messaging and user profile")
 
 ---
+chatgpt=https://chatgpt.com/share/6815f73d-3a38-8006-9f59-243a6bdf71e0
