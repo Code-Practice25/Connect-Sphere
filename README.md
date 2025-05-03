@@ -31,7 +31,7 @@ Connect-Sphere is a comprehensive social media application built on the MERN sta
 
 The platform enables users to chat securely, share posts, and express themselves through ephemeral stories — all within a single, cohesive user experience.
 
-![Connect-Sphere Banner](https://via.placeholder.com/1200x400?text=Connect-Sphere)
+![Connect-Sphere Banner](https://res.cloudinary.com/deoegf9on/image/upload/v1746283031/logo_dt52ic.png)
 
 ## ✨ Features
 
