@@ -1,5 +1,3 @@
----
-
 ## 🧩 Split Overview
 
 ### 🔷Parinay Raya: Focus on Secure Messaging
