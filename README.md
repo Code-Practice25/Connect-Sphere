@@ -254,8 +254,8 @@ connect-sphere/
 <table>
   <tr>
     <td align="center">
-      <a href="https://github.com/Code-Practice25">
-        <img src="https://github.com/Code-Practice25.png" width="100px;" alt="Parinay Raya"/>
+      <a href="https://github.com/Parinay-raya">
+        <img src="https://github.com/Parinay-raya.png" width="100px;" alt="Parinay Raya"/>
         <br />
         <sub><b>Parinay Raya</b></sub>
       </a>
