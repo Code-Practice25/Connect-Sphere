@@ -1,0 +1,139 @@
+/* Feed Page Layout - Grid System
+ * This layout organizes the page into three columns:
+ * 1. Left sidebar (ProfileCard)
+ * 2. Main content (StoryBar, posts)
+ * 3. Right sidebar (TrendingSection, SuggestedFriends)
+ */
+
+.feed-container {
+  display: grid;
+  width: 100%;
+  max-width: 1200px; /* Maximum width for very large screens */
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  gap: 20px;
+}
+
+/* Default: Stack everything on mobile */
+@media (max-width: 767px) {
+  .feed-container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "stories"
+      "content"
+      "left-sidebar"
+      "right-sidebar";
+  }
+  
+  .story-bar {
+    grid-area: stories;
+    width: 100%;
+  }
+  
+  .feed-content {
+    grid-area: content;
+  }
+  
+  .left-sidebar {
+    grid-area: left-sidebar;
+  }
+  
+  .right-sidebar {
+    grid-area: right-sidebar;
+  }
+}
+
+/* Tablet: Two columns */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .feed-container {
+    grid-template-columns: 250px 1fr;
+    grid-template-areas:
+      "left-sidebar stories"
+      "left-sidebar content"
+      "right-sidebar content";
+  }
+  
+  .story-bar {
+    grid-area: stories;
+    width: 100%;
+  }
+  
+  .feed-content {
+    grid-area: content;
+  }
+  
+  .left-sidebar {
+    grid-area: left-sidebar;
+  }
+  
+  .right-sidebar {
+    grid-area: right-sidebar;
+  }
+}
+
+/* Desktop: Three columns */
+@media (min-width: 1024px) {
+  .feed-container {
+    grid-template-columns: 250px 1fr 300px;
+    grid-template-areas:
+      "left-sidebar stories right-sidebar"
+      "left-sidebar content right-sidebar";
+  }
+  
+  .story-bar {
+    grid-area: stories;
+    width: 100%;
+  }
+  
+  .feed-content {
+    grid-area: content;
+  }
+  
+  .left-sidebar {
+    grid-area: left-sidebar;
+  }
+  
+  .right-sidebar {
+    grid-area: right-sidebar;
+  }
+}
+
+/* Sidebar containers */
+.left-sidebar,
+.right-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: fit-content;
+  position: sticky;
+  top: 20px; /* Sticky position from top of viewport */
+}
+
+/* Ensure sidebar components maintain their width */
+.left-sidebar > *,
+.right-sidebar > * {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Main content area */
+.feed-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Utility classes for spacing */
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+/* Ensure content stretches in its container */
+.full-width {
+  width: 100%;
+}

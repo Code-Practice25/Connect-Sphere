@@ -247,9 +247,11 @@ const PostComposer = ({ user, onCreatePost }) => {
           <input
             type="text"
             className="composer-input"
-            placeholder={selectedFeeling
-              ? `What's on your mind? You're feeling ${selectedFeeling.name}...`
-              : "What's on your mind?"}
+            placeholder={
+              selectedFeeling
+                ? `What's on your mind? You're feeling ${selectedFeeling.name}...`
+                : "What's on your mind?"
+            }
             value={content}
             onChange={handleContentChange}
           />
@@ -266,7 +268,17 @@ const PostComposer = ({ user, onCreatePost }) => {
               onClick={handleRemoveFeeling}
               aria-label="Remove feeling"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <line x1="18" y1="6" x2="6" y2="18"></line>
                 <line x1="6" y1="6" x2="18" y2="18"></line>
               </svg>
@@ -277,7 +289,18 @@ const PostComposer = ({ user, onCreatePost }) => {
         {/* Selected location display */}
         {selectedLocation && (
           <div className="selected-location">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="location-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="location-icon"
+            >
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
               <circle cx="12" cy="10" r="3"></circle>
             </svg>
@@ -288,7 +311,17 @@ const PostComposer = ({ user, onCreatePost }) => {
               onClick={handleRemoveLocation}
               aria-label="Remove location"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <line x1="18" y1="6" x2="6" y2="18"></line>
                 <line x1="6" y1="6" x2="18" y2="18"></line>
               </svg>
@@ -306,7 +339,17 @@ const PostComposer = ({ user, onCreatePost }) => {
               onClick={handleRemoveImage}
               aria-label="Remove image"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <circle cx="12" cy="12" r="10"></circle>
                 <line x1="15" y1="9" x2="9" y2="15"></line>
                 <line x1="9" y1="9" x2="15" y2="15"></line>
@@ -321,31 +364,61 @@ const PostComposer = ({ user, onCreatePost }) => {
           ref={fileInputRef}
           onChange={handleImageSelect}
           accept="image/*"
-          style={{ display: 'none' }}
+          style={{ display: "none" }}
           aria-label="Upload image"
         />
 
         <div className="composer-actions">
           <div className="composer-action-buttons">
-            <button
-              type="button"
-              className="composer-action-btn"
-              onClick={handlePhotoButtonClick}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="action-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-              <span>Photo</span>
-            </button>
-
-            <div className="feeling-selector-container" ref={feelingSelectorRef}>
+            {/* Photo Button */}
+            <div className="composer-action-wrapper">
               <button
                 type="button"
-                className={`composer-action-btn ${selectedFeeling ? 'active' : ''}`}
+                className="composer-action-btn"
+                onClick={handlePhotoButtonClick}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="action-icon"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  />
+                </svg>
+                <span>Photo</span>
+              </button>
+            </div>
+
+            {/* Feeling Button */}
+            <div
+              className="composer-action-wrapper feeling-selector-container"
+              ref={feelingSelectorRef}
+            >
+              <button
+                type="button"
+                className={`composer-action-btn ${selectedFeeling ? "active" : ""
+                  }`}
                 onClick={handleFeelingButtonClick}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="action-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="action-icon"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
                 </svg>
                 <span>Feeling</span>
               </button>
@@ -357,7 +430,7 @@ const PostComposer = ({ user, onCreatePost }) => {
                     <h3>How are you feeling?</h3>
                   </div>
                   <div className="feeling-options">
-                    {FEELINGS.map(feeling => (
+                    {FEELINGS.map((feeling) => (
                       <div
                         key={feeling.id}
                         className="feeling-option"
@@ -372,15 +445,36 @@ const PostComposer = ({ user, onCreatePost }) => {
               )}
             </div>
 
-            <div className="location-selector-container" ref={locationSelectorRef}>
+            {/* Location Button */}
+            <div
+              className="composer-action-wrapper location-selector-container"
+              ref={locationSelectorRef}
+            >
               <button
                 type="button"
-                className={`composer-action-btn ${selectedLocation ? 'active' : ''}`}
+                className={`composer-action-btn ${selectedLocation ? "active" : ""
+                  }`}
                 onClick={handleLocationButtonClick}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="action-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="action-icon"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
                 </svg>
                 <span>Location</span>
               </button>
@@ -404,13 +498,24 @@ const PostComposer = ({ user, onCreatePost }) => {
                     {isSearching ? (
                       <div className="location-loading">Searching...</div>
                     ) : searchResults.length > 0 ? (
-                      searchResults.map(location => (
+                      searchResults.map((location) => (
                         <div
                           key={location.id}
                           className="location-result-item"
                           onClick={() => handleLocationSelect(location)}
                         >
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="location-result-icon">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="location-result-icon"
+                          >
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                             <circle cx="12" cy="10" r="3"></circle>
                           </svg>
@@ -420,22 +525,32 @@ const PostComposer = ({ user, onCreatePost }) => {
                     ) : locationSearch.length >= 3 ? (
                       <div className="location-no-results">No locations found</div>
                     ) : (
-                      <div className="location-search-hint">Type at least 3 characters to search</div>
+                      <div className="location-search-hint">
+                        Type at least 3 characters to search
+                      </div>
                     )}
                   </div>
                 </div>
               )}
             </div>
           </div>
-
-          <button
-            type="submit"
-            className={`post-button ${content.trim() || selectedImage || selectedFeeling || selectedLocation ? 'active' : ''}`}
-            disabled={!content.trim() && !selectedImage && !selectedFeeling && !selectedLocation}
-          >
-            Post
-          </button>
         </div>
+
+        <button
+          type="submit"
+          className={`post-button ${content.trim() || selectedImage || selectedFeeling || selectedLocation
+              ? "active"
+              : ""
+            }`}
+          disabled={
+            !content.trim() &&
+            !selectedImage &&
+            !selectedFeeling &&
+            !selectedLocation
+          }
+        >
+          Post
+        </button>
       </form>
     </div>
   );

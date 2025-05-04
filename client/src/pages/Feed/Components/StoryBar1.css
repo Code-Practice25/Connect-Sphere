@@ -1,0 +1,308 @@
+/* StoryBar Styles */
+.story-bar {
+  position: relative;
+  width: 100%; /* Base width */
+  max-width: 100%; /* Never exceed parent container */
+  margin-bottom: 20px;
+  padding: 10px 0;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden; /* Hide overflow */
+  /* Fixed dimensions to ensure consistent sizing */
+  box-sizing: border-box;
+}
+
+.stories-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+  scrollbar-width: none;  /* Hide scrollbar for Firefox */
+  padding: 8px 16px;
+  /* Critical for fixed width - prevent content from expanding container */
+  flex-wrap: nowrap;
+  width: 100%;
+  /* Add some space at the end for better UX when scrolling to the last item */
+  padding-right: 24px;
+  /* Ensure child items don't cause parent to grow */
+  min-width: 0;
+}
+
+.stories-container::-webkit-scrollbar {
+  display: none;
+  /* Hide scrollbar for Chrome, Safari and Opera */
+}
+
+/* Navigation Arrows */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s;
+  outline: none; /* Remove outline */
+}
+
+.nav-arrow:hover {
+  background: var(--secondary-color);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.nav-arrow:focus {
+  outline: none; /* Ensure no outline on focus */
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3); /* Based on primary color */
+}
+
+.left-arrow {
+  left: 5px;
+}
+
+.right-arrow {
+  right: 5px;
+}
+
+.nav-arrow span {
+  font-size: 18px;
+  color: var(--text-secondary);
+}
+
+/* Add shadow indicators to show there's more content */
+.stories-container::after,
+.stories-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 30px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.stories-container::after {
+  right: 0;
+  background: linear-gradient(to right, transparent, var(--card-bg, #ffffff));
+}
+
+.stories-container::before {
+  left: 0;
+  background: linear-gradient(to left, transparent, var(--card-bg, #ffffff));
+}
+
+/* Story Avatar Wrapper */
+.story-avatar-wrapper {
+  cursor: pointer;
+  transition: transform 0.2s;
+  margin: 0 8px;
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+  /* Critical for fixed width - prevent items from growing/shrinking */
+  flex: 0 0 auto;
+  width: 64px; /* Fixed width for each story */
+}
+
+.story-avatar-wrapper:hover {
+  transform: scale(1.05);
+}
+
+/* Custom focus style without outline */
+.story-avatar-wrapper:focus {
+  outline: none !important;
+}
+
+.story-avatar-wrapper:active {
+  outline: none !important;
+}
+
+/* Story Avatar */
+.story-avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 64px;
+  outline: none !important;
+}
+
+/* Ensure all avatar containers are circular */
+.story-ring-container {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  position: relative;
+  outline: none !important;
+}
+
+/* Story ring styles - different for watched vs unwatched */
+.story-ring {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-full);
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* Primary color gradient for unwatched stories */
+.story-ring.unwatched {
+  background: linear-gradient(45deg, var(--primary-color), var(--primary-hover));
+}
+
+/* Gray ring for watched stories */
+.story-ring.watched {
+  background: var(--text-secondary);
+}
+
+/* Ensure all avatar images are properly circular */
+.avatar-img {
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  object-fit: cover;
+  border-radius: var(--radius-full);
+  outline: none !important;
+  border: 2px solid var(--card-bg); /* Border color from card background */
+  background-color: var(--secondary-color); /* Background color for images that fail to load */
+}
+
+/* No-story version should have a standard border */
+.no-story {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  position: relative;
+  border: 2px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Add Story Button - using primary color style */
+.add-story-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 8px;
+  cursor: pointer;
+  outline: none !important;
+  /* Critical for fixed width - prevent item from growing/shrinking */
+  flex: 0 0 auto;
+  width: 64px; /* Fixed width */
+}
+
+.add-story-avatar {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  background: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  outline: none !important;
+}
+
+.add-story-avatar:focus, 
+.add-story-avatar:active {
+  outline: none !important;
+}
+
+.add-icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: var(--primary-color);
+  color: var(--card-bg);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  right: 0;
+  font-size: 16px;
+  z-index: 1;
+  border: 2px solid var(--card-bg);
+}
+
+.avatar-img.faded {
+  opacity: 0.8;
+}
+
+/* Username text */
+.username {
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--text-secondary);
+  max-width: 64px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+}
+
+
+/* Loading Skeletons */
+.skeleton-container {
+  display: flex;
+}
+
+.story-avatar-skeleton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 8px;
+  /* Fix skeleton width */
+  flex: 0 0 auto;
+  width: 64px;
+}
+
+.avatar-skeleton {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, var(--secondary-color) 25%, var(--border-color) 50%, var(--secondary-color) 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+.username-skeleton {
+  width: 50px;
+  height: 10px;
+  margin-top: 5px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--secondary-color) 25%, var(--border-color) 50%, var(--secondary-color) 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Media queries for responsive design */
+@media (min-width: 768px) {
+  /* On desktop and larger screens, enforce fixed width */
+  .story-bar {
+    /* Fixed width for desktop */
+    width: 100%;
+  }
+}
+

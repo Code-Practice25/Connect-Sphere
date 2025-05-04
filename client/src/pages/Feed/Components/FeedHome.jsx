@@ -7,11 +7,15 @@ import ProfileCard from './Sidebar/ProfileCard';
 import TrendingSection from './Sidebar/TrendingSection';
 import SuggestedFriends from './Sidebar/SuggestedFriends';
 import { STORIES, POSTS, TRENDING_TOPICS, CURRENT_USER } from '../../../data/mockData';
+import './Feed.css'; // Add CSS import for styling
 
 /**
  * FeedHome Component
  * 
- * Main feed page that assembles all feed components
+ * Main feed page layout with three-column design:
+ * 1. Left sidebar (ProfileCard)
+ * 2. Main content (StoryBar, PostComposer, PostCards)
+ * 3. Right sidebar (TrendingSection, SuggestedFriends)
  * 
  * @returns {JSX.Element}
  */
@@ -64,59 +68,49 @@ const FeedHome = () => {
   };
 
   return (
-    <div className="feed-container">
-      <div className="feed-content">
-        <div className="feed-layout">
-          {/* Left sidebar (desktop only) */}
-          <div className="sidebar left-sidebar">
-            <div className="sidebar-content">
-              <ProfileCard user={CURRENT_USER} />
-            </div>
-          </div>
+    <div className="feed-layout">
+      {/* Left Sidebar */}
+      <div className="feed-sidebar feed-left-sidebar">
+        <ProfileCard user={CURRENT_USER} />
+      </div>
 
-          {/* Main content */}
-          <div className="main-content">
-            {/* Story bar */}
-            <StoryBar stories={STORIES} />
+      {/* Main Content */}
+      <div className="feed-main-content">
+        <StoryBar stories={STORIES} />
+        
+        <div className="feed-posts-container">
+          <PostComposer user={CURRENT_USER} onCreatePost={handleCreatePost} />
+          
+          {/* Posts feed */}
+          {posts.map(post => (
+            <PostCard key={post.id} post={post} />
+          ))}
+          
+          {/* Loading skeletons */}
+          {loading && (
+            <>
+              <PostSkeleton />
+              <PostSkeleton />
+            </>
+          )}
 
-            {/* Post composer */}
-            <PostComposer user={CURRENT_USER} onCreatePost={handleCreatePost} />
-
-            {/* Posts feed */}
-            <div className="posts-feed">
-              {posts.map(post => (
-                <PostCard key={post.id} post={post} />
-              ))}
-              
-              {/* Loading skeletons */}
-              {loading && (
-                <>
-                  <PostSkeleton />
-                  <PostSkeleton />
-                </>
-              )}
-
-              {/* Load more button */}
-              <div className="load-more-container">
-                <button 
-                  onClick={loadMorePosts}
-                  disabled={loading}
-                  className={`load-more-btn ${loading ? 'loading' : ''}`}
-                >
-                  {loading ? 'Loading...' : 'Load More Posts'}
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Right sidebar (desktop only) */}
-          <div className="sidebar right-sidebar">
-            <div className="sidebar-content">
-              <TrendingSection topics={TRENDING_TOPICS} />
-              <SuggestedFriends suggestions={STORIES.slice(0, 3)} />
-            </div>
+          {/* Load more button */}
+          <div className="load-more-container">
+            <button 
+              onClick={loadMorePosts}
+              disabled={loading}
+              className={`load-more-btn ${loading ? 'loading' : ''}`}
+            >
+              {loading ? 'Loading...' : 'Load More Posts'}
+            </button>
           </div>
         </div>
+      </div>
+
+      {/* Right Sidebar */}
+      <div className="feed-sidebar feed-right-sidebar">
+        <TrendingSection topics={TRENDING_TOPICS} />
+        <SuggestedFriends suggestions={STORIES.slice(0, 3)} />
       </div>
     </div>
   );
